@@ -1,0 +1,84 @@
+	<div class="module-instagram">
+		{% if instagrams %}		
+		<!-- <h4>{{ entry_instagram }}</h4> -->
+		<div class="instagram">
+			{% for instagram in instagrams %}
+			<div class="item {{ hover_effect }}">
+				<a href="{{ instagram.href }}" target="_blank" data-like="{{ instagram.likes }}">
+					<i class="fa fa-instagram" aria-hidden="true"></i>
+					<img src="{{ instagram.img }}" alt="{{ instagram.text }}"> 
+				</a> 
+			</div>
+			{% endfor %}
+		</div>
+		{% endif %}
+	</div>
+
+<style>
+  .module-instagram .slick-prev:before, 
+  .module-instagram .slick-next:before{
+    color: {{ color }};
+  }
+  /**/
+  .module-instagram h4{
+    text-align: {{ text_align }};
+  }
+</style>
+
+
+{% if instagrams %}
+ <script>
+ $(function(){
+  var x =  $('.instagram').children();
+
+for (i = 0; i < x.length ; i += 2) {
+  x.slice(i,i+2).wrapAll('<div class="'+ i +'"></div>');
+}
+  $('.instagram').slick({
+    slidesToShow: {{ slidesToShow }},
+    slidesToScroll: {{ slidesToScroll }},
+    autoplay: {{ autoplay }},
+    autoplaySpeed: {{ autoplaySpeed }},
+    dots : {{ dots }},
+    arrows : {{ arrows }},
+     responsive:[
+    {
+      breakpoint: 1849,
+      settings: {
+        slidesToShow: 7,
+        // slidesToShow : prd_per_column,
+      }
+    },
+    {
+      breakpoint: 1199,
+      settings: {
+        slidesToShow: 5,
+        // slidesToShow : prd_per_column_tab,
+      }
+    },
+    {
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 4,
+        // slidesToShow : prd_per_column_tab,
+      }
+    },
+    {
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 3,
+        // slidesToShow : prd_per_column_tab,
+      }
+    },
+    {
+      breakpoint: 481,
+      settings: {
+        slidesToShow: 2,
+        // slidesToShow : prd_per_column_mob,
+      }
+    }
+  ]
+  });
+  });
+</script>
+{% endif %}

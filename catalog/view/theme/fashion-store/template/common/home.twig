@@ -1,0 +1,26 @@
+{{ header }}
+<div id="common-home" class="container">
+<div id="loading">
+  <div id="loading-center">
+    <div id="loading-center-absolute">
+      <div class="object" id="object_one"></div>
+      <div class="object" id="object_two"></div>
+      <div class="object" id="object_three"></div>
+    </div>
+  </div>
+</div>
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-xs-12 col-sm-8 col-lg-10 col-md-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}</div>
+    {{ column_right }}</div>
+    <div class="row">
+    {{ content_bottom }}
+    </div>
+</div>
+{{ footer }}
