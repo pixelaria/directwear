@@ -50,18 +50,17 @@
   <div class="container">
   <div class="row">
     <div class="col-sm-6 hidden-xs">
-      {{ header_left }}
+      <p class="top-text"><a href="mailto:{{email}}">{{ email }}</a></p>
     </div>
      <div class="col-sm-6 text-right">
-      {{ language }}
-      {{ currency }}
+      <p class="top-text"><a href="tel:{{phone}}">Ph: {{ phone }}</a></p>
     </div>
     </div>
   </div>
 </nav>
 <header>
   <div class="container">
-    <div class="row">
+    <div class="row row--flex">
       <div class="col-md-2 col-sm-3 col-xs-7">
         <div id="logo">{% if logo %}<a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" /></a>{% else %}
           <h1><a href="{{ home }}">{{ name }}</a></h1>
@@ -69,23 +68,8 @@
       </div>
       <div class="col-md-8 col-sm-6 col-xs-12 xs-se">{{ search }}</div>
       <div class="col-md-2 col-sm-3 col-xs-5 xs-head-right">
-      <ul class="head-right">
-        <li><a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}"><img src="image/catalog/header/wish.png"></a></li>
-        <li class="dropdown user-drop"><a href="{{ account }}" title="{{ text_account }}" class="dropdown-toggle" data-toggle="dropdown"><img src="image/catalog/header/user.png"><span class="hidden-xs hidden-sm hidden-md"></span> <span class="caret"></span></a>
-          <ul class="dropdown-menu dropdown-menu-right">
-            {% if logged %}
-            <li><a href="{{ account }}"><i class="fa fa-user"></i>{{ text_account }}</a></li>
-            <li><a href="{{ order }}"><i class="fa fa-history"></i>{{ text_order }}</a></li>
-            <li><a href="{{ transaction }}"><i class="fa fa-exchange"></i>{{ text_transaction }}</a></li>
-            <li><a href="{{ download }}"><i class="fa fa-download"></i>{{ text_download }}</a></li>
-            <li><a href="{{ logout }}"><i class="fa fa-sign-out"></i>{{ text_logout }}</a></li>
-            {% else %}
-            <li><a href="{{ register }}"><i class="fa fa-user-plus"></i>{{ text_register }}</a></li>
-            <li><a href="{{ login }}"><i class="fa fa-lock"></i>{{ text_login }}</a></li>
-            {% endif %}
-          </ul>
-        </li>
-        <li>{{ cart }}</li>
+        <ul class="head-right">
+          <li>{{ cart }}</li>
         </ul>
       </div>
     </div>

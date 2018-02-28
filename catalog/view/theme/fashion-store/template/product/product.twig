@@ -16,37 +16,33 @@
     <div id="content" class="{{ class }}">{{ content_top }}
       <div class="row">
         {% if column_left or column_right %}
-        {% set class = 'col-lg-5 col-md-6 col-xs-12 pimg' %}
+        {% set class = 'col-lg-3 col-md-6 col-xs-12 pimg' %}
         {% else %}
         {% set class = 'col-sm-5 proimg' %}
         {% endif %}
         <div class="{{ class }}"> 
         {% if thumb or images %}
-                        <ul class="thumbnails col-sm-12">
-                            {% if thumb %}
-                            <li><a class="thumbnail" href="{{ popup }}" title="{{ heading_title }}">
-                                    <img data-zoom-image="{{ popup }}" src="{{ thumb }}" id="zoom_03" class="img-responsive center-block" alt="image">
-                                </a>
-                                <div class="productwish">
-                     <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product_id }}');"><i class="fa fa-heart"></i></button>
-              <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product_id }}');" ><i class="fa fa-exchange"></i></button>
-                                </div>
-                            </li>
-                            {% endif %}
-                            {% if images %}
-                            <li id="gallery_01" class="owl-carousel">
-                                {% for image in images %}
-                                <a data-zoom-image="{{ image.popup }}" data-image="{{ image.popup }}"  href="{{ image.popup }}">
-                                    <img src="{{ image.thumb }}" class="img-responsive center-block" alt="additional image">
-                                </a>
-                                {% endfor %}
-                            </li>
-                            {% endif %}
-                        </ul>
-          {% endif %}
+          <ul class="thumbnails col-sm-12">
+              {% if thumb %}
+              <li><a class="thumbnail" href="{{ popup }}" title="{{ heading_title }}">
+                      <img data-zoom-image="{{ popup }}" src="{{ thumb }}" id="zoom_03" class="img-responsive center-block" alt="image">
+                  </a>
+              </li>
+              {% endif %}
+              {% if images %}
+              <li id="gallery_01" class="owl-carousel">
+                  {% for image in images %}
+                  <a data-zoom-image="{{ image.popup }}" data-image="{{ image.popup }}"  href="{{ image.popup }}">
+                      <img src="{{ image.thumb }}" class="img-responsive center-block" alt="additional image">
+                  </a>
+                  {% endfor %}
+              </li>
+              {% endif %}
+          </ul>
+        {% endif %}
         </div>
         {% if column_left or column_right %}
-        {% set class = 'col-md-6 col-lg-7 col-xs-12' %}
+        {% set class = 'col-md-6 col-lg-9 col-xs-12' %}
         {% else %}
         {% set class = 'col-sm-7' %}
         {% endif %}

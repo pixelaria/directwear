@@ -79,6 +79,11 @@ class ControllerCommonHeader extends Controller {
 		$data['cart'] = $this->load->controller('common/cart');
 		$data['menu'] = $this->load->controller('common/menu');
 
+		/** custom **/
+		$data['phone'] = $this->config->get('config_telephone');
+		$data['email'] = $this->config->get('config_email');
+
+
 		return $this->load->view('common/header', $data);
 	}
 }
